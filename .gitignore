@@ -1,0 +1,9 @@
+# MonoDevelop Project fluff
+TypeTime.userprefs
+TextManager/bin
+TextManager/obj
+TypeTime/bin
+TypeTime/obj
+
+# Gedit
+*~
