@@ -129,6 +129,7 @@ namespace TextManager
 
                 /// <summary>
                 /// Generates the target string.
+                /// Chooses from the Letters member, if it's useful to change character sets.
                 /// </summary>
                 /// <returns>The string.</returns>
                 /// <param name="length">Length of the generated string.</param>
@@ -136,6 +137,8 @@ namespace TextManager
                 {
                         string result = string.Empty;
                         int len = this.targetLength;
+                        int max = RandomTarget.Letters.Length - 1;
+
                         if (length != null)
                         {
                                 len = (int)length;
@@ -143,7 +146,7 @@ namespace TextManager
 
                         for (int count = 0; count < len; count++)
                         {
-                                result += RandomTarget.Letters[this.rand.Next(0, 25)].ToString();
+                                result += RandomTarget.Letters[this.rand.Next(0, max)].ToString();
                         }
 
                         return result;
