@@ -14,9 +14,11 @@ namespace TextManager
                 /// <summary>
                 /// The entry point of the program, where the program control starts and ends.
                 /// </summary>
-                private static void Main()
+                /// <param name="args">The command-line arguments.</param>
+                private static void Main(string[] args)
                 {
-                        var rt = new RandomTarget(5);
+                        const int Length = 5;
+                        var rt = new RandomTarget(Length);
                         var time = new Timing(4);
                         string input;
                         int errors;
@@ -32,6 +34,10 @@ namespace TextManager
                         dur = time.Duration;
                         Console.WriteLine(errors.ToString() + " errors, " +
                                 dur.TotalSeconds.ToString() + " seconds.");
+                        using (var log = new Logger(args[0], null))
+                        {
+                                log.Log(time.Start, time.Delay, Length, errors, dur.TotalSeconds);
+                        }
                 }
         }
 }

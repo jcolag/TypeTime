@@ -68,6 +68,30 @@ namespace TextManager
                 }
 
                 /// <summary>
+                /// Gets the start time.
+                /// </summary>
+                /// <value>The start.</value>
+                public DateTime Start
+                {
+                        get
+                        {
+                                return this.start;
+                        }
+                }
+
+                /// <summary>
+                /// Gets the delay.
+                /// </summary>
+                /// <value>The delay.</value>
+                public int Delay
+                {
+                        get
+                        {
+                                return this.delay;
+                        }
+                }
+
+                /// <summary>
                 /// Sets the starting time.
                 /// </summary>
                 public void SetStart()
