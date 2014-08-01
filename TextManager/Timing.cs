@@ -29,7 +29,7 @@ namespace TextManager
                 /// <summary>
                 /// The maximum delay before showing the text to type.
                 /// </summary>
-                private int delay = 0;
+                private int delay;
 
                 /// <summary>
                 /// Initializes a new instance of the <see cref="TextManager.Timing"/> class.
@@ -45,7 +45,14 @@ namespace TextManager
                 /// <param name="seconds">Maximum delay in seconds.</param>
                 public Timing(int seconds)
                 {
-                        this.delay = new Random().Next(seconds);
+                        int sec = seconds;
+
+                        if (sec < 0)
+                        {
+                                sec = 0;
+                        }
+
+                        this.delay = new Random().Next(sec);
                 }
 
                 /// <summary>

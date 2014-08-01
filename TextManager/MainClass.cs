@@ -9,13 +9,12 @@ namespace TextManager
         /// <summary>
         /// Main class.
         /// </summary>
-        public class MainClass
+        public static class MainClass
         {
                 /// <summary>
                 /// The entry point of the program, where the program control starts and ends.
                 /// </summary>
-                /// <param name="args">The command-line arguments.</param>
-                public static void Main(string[] args)
+                private static void Main()
                 {
                         var rt = new RandomTarget(5);
                         var time = new Timing(4);
@@ -31,7 +30,8 @@ namespace TextManager
                         time.SetEnd();
                         errors = rt.CheckString(input);
                         dur = time.Duration;
-                        Console.WriteLine(errors.ToString() + " errors, " + dur.TotalSeconds + " seconds.");
+                        Console.WriteLine(errors.ToString() + " errors, " +
+                                dur.TotalSeconds.ToString() + " seconds.");
                 }
         }
 }

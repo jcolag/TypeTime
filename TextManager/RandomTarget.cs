@@ -80,7 +80,7 @@ namespace TextManager
                                 throw new ArgumentNullException("test");
                         }
 
-                        string input = test.Trim().ToUpper();
+                        string input = test.Trim().ToUpper(System.Globalization.CultureInfo.CurrentCulture);
                         int[,] matrix = new int[this.target.Length + 1, input.Length + 1];
 
                         for (int i = 0; i <= this.target.Length; i++)
@@ -143,7 +143,7 @@ namespace TextManager
 
                         for (int count = 0; count < len; count++)
                         {
-                                result += RandomTarget.Letters[this.rand.Next(0, 25)];
+                                result += RandomTarget.Letters[this.rand.Next(0, 25)].ToString();
                         }
 
                         return result;
