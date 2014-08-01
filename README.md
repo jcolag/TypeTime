@@ -13,7 +13,28 @@ The program works as follows:
 
  - Count the errors, using the [Levenshtein Distance](https://en.wikipedia.org/wiki/Levenshtein_distance), or at least something close enough.
 
+ - Log the results.
+
 The decision as to how to combine the delay, time, length, and errors into a single metric requires some analysis.
+
+Logging
+-------
+
+_TypeTime_ logs either to a CSV file or an SQLite database, each with the following fields.
+
+ - `date`, a `text` field, for the day's date.  Currently no time, because I only use it on waking up.
+
+ - `day`, a `text` field with the day of the week.  Obviously not necessary, but handy for quick review.
+
+ - `delay`, an `integer` field, representing the number of seconds the program waited before showing the target string.
+
+ - `length`, an `integer` field, the number of characters in the target string.
+
+ - `errors`, an `integer` field, the Levenshtein distance between the target string and the user input.
+
+ - `time`, a `real` field, the user response time (in seconds).
+
+The CSV format and the database schema are the same.
 
 Status
 ------
@@ -24,5 +45,8 @@ Right now, only the console version has been written, and seems to work well eno
 
 There is a fair amount of configuration built-in, but the options are hardcoded for the moment.
 
-The program doesn't yet do any logging, whereas the C version shows all of the metrics and the date is supplied elsewhere.  Given the work on [uManage](https://github.com/jcolag/uManage), _TypeTime_ will probably eventually need to log to an [SQLite](https://www.sqlite.org/) database for consistency.
+Potential Issues
+----------------
+
+The big issue that might interest somebody is that logging to SQLite databases occurs through `Mono.Data.Sqlite`, meaning that _TypeTime_ will not operate under .NET.  There _is_ a .NET implementation of the SQLite libraries, [`System.Data.Sqlite`](https://system.data.sqlite.org/index.html/doc/trunk/www/index.wiki), which may well be functionally identical.  That will require testing.
 
