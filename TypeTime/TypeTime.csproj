@@ -69,4 +69,10 @@
     <Compile Include="MainClass.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <ProjectReference Include="..\TextManager\TextManager.csproj">
+      <Project>{CD3BE441-85EC-4770-A0DD-21966F5E5B05}</Project>
+      <Name>TextManager</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

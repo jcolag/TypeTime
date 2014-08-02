@@ -39,11 +39,13 @@
         <property name="RowSpacing">6</property>
         <property name="ColumnSpacing">6</property>
         <child>
-          <widget class="Gtk.Entry" id="entry1">
+          <widget class="Gtk.Entry" id="entryInput">
             <property name="MemberName" />
             <property name="CanFocus">True</property>
             <property name="IsEditable">True</property>
             <property name="InvisibleChar">•</property>
+            <signal name="Activated" handler="OnEntryInputActivated" />
+            <signal name="Changed" handler="OnEntryInputChanged" />
           </widget>
           <packing>
             <property name="TopAttach">2</property>

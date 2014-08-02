@@ -13,7 +13,7 @@ public partial class MainWindow
 	
 	private global::Gtk.Table table1;
 	
-	private global::Gtk.Entry entry1;
+	private global::Gtk.Entry entryInput;
 	
 	private global::Gtk.Label label2;
 	
@@ -63,13 +63,13 @@ public partial class MainWindow
 		this.table1.RowSpacing = ((uint)(6));
 		this.table1.ColumnSpacing = ((uint)(6));
 		// Container child table1.Gtk.Table+TableChild
-		this.entry1 = new global::Gtk.Entry ();
-		this.entry1.CanFocus = true;
-		this.entry1.Name = "entry1";
-		this.entry1.IsEditable = true;
-		this.entry1.InvisibleChar = '•';
-		this.table1.Add (this.entry1);
-		global::Gtk.Table.TableChild w2 = ((global::Gtk.Table.TableChild)(this.table1 [this.entry1]));
+		this.entryInput = new global::Gtk.Entry ();
+		this.entryInput.CanFocus = true;
+		this.entryInput.Name = "entryInput";
+		this.entryInput.IsEditable = true;
+		this.entryInput.InvisibleChar = '•';
+		this.table1.Add (this.entryInput);
+		global::Gtk.Table.TableChild w2 = ((global::Gtk.Table.TableChild)(this.table1 [this.entryInput]));
 		w2.TopAttach = ((uint)(2));
 		w2.BottomAttach = ((uint)(3));
 		w2.LeftAttach = ((uint)(1));
@@ -178,5 +178,7 @@ public partial class MainWindow
 		this.DefaultHeight = 300;
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
+		this.entryInput.Activated += new global::System.EventHandler (this.OnEntryInputActivated);
+		this.entryInput.Changed += new global::System.EventHandler (this.OnEntryInputChanged);
 	}
 }
