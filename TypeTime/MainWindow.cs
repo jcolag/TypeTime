@@ -55,7 +55,9 @@ public partial class MainWindow : Gtk.Window
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class.
         /// </summary>
-        public MainWindow() : base(Gtk.WindowType.Toplevel)
+        /// <param name="db">Name of the database file, if any.</param>
+        /// <param name="csv">Name of the CSV log, if any.</param>
+        public MainWindow(string db, string csv) : base(Gtk.WindowType.Toplevel)
         {
                 this.Build();
                 this.interval = (this.rand.Next(0, 4) * 1000) + 1;
@@ -65,7 +67,7 @@ public partial class MainWindow : Gtk.Window
                 this.delay.Elapsed += this.HandleElapsed;
                 this.delay.Start();
                 this.time = new Timing();
-                this.log = new Logger("/home/john/Dropbox/activity.db", null);
+                this.log = new Logger(db, csv);
         }
 
         /// <summary>

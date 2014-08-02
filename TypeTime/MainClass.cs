@@ -18,8 +18,10 @@ namespace TypeTime
                 /// <param name="args">The command-line arguments.</param>
                 public static void Main(string[] args)
                 {
+                        string db = args.Length > 0 ? args[0] : null;
+
                         Application.Init();
-                        MainWindow win = new MainWindow();
+                        MainWindow win = new MainWindow(db, null);
                         win.Show();
                         Application.Run();
                 }
