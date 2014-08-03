@@ -75,4 +75,10 @@
       <Name>TextManager</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="TypeTime.png">
+      <DeployService-UseProjectRelativePath>True</DeployService-UseProjectRelativePath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
 </Project>

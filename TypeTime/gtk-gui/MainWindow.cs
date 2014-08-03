@@ -67,6 +67,7 @@ public partial class MainWindow
 		this.AddAccelGroup (this.UIManager.AccelGroup);
 		this.Name = "MainWindow";
 		this.Title = global::Mono.Unix.Catalog.GetString ("Type Time");
+		this.Icon = new global::Gdk.Pixbuf (global::System.IO.Path.Combine (global::System.AppDomain.CurrentDomain.BaseDirectory, "./TypeTime.png"));
 		this.WindowPosition = ((global::Gtk.WindowPosition)(4));
 		this.Modal = true;
 		this.AllowShrink = true;

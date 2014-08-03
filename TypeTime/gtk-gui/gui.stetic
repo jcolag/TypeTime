@@ -45,6 +45,7 @@
     </action-group>
     <property name="MemberName" />
     <property name="Title" translatable="yes">Type Time</property>
+    <property name="Icon">file:./TypeTime.png</property>
     <property name="WindowPosition">CenterOnParent</property>
     <property name="Modal">True</property>
     <property name="AllowShrink">True</property>
