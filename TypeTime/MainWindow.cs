@@ -60,7 +60,7 @@ public partial class MainWindow : Gtk.Window
         public MainWindow(string db, string csv) : base(Gtk.WindowType.Toplevel)
         {
                 this.Build();
-                this.interval = (this.rand.Next(0, 4) * 1000) + 1;
+                this.interval = (this.rand.Next(5) * 1000) + 1;
                 this.entryInput.Sensitive = false;
                 this.delay = new Timer(this.interval);
                 this.delay.AutoReset = false;
@@ -117,7 +117,10 @@ public partial class MainWindow : Gtk.Window
         {
                 int len = this.entryInput.Text.Length;
                 double done = (double)len / (double)this.targetLength;
-                this.progressType.Fraction = done;
+                if (done >= 0 && done <= 1)
+                {
+                        this.progressType.Fraction = done;
+                }
         }
 
         /// <summary>
@@ -130,17 +133,18 @@ public partial class MainWindow : Gtk.Window
                 this.entryInput.Sensitive = true;
                 this.target = new RandomTarget(this.targetLength);
                 this.target.SetString();
-                this.lblTarget.Text = this.target.Target;
-                this.time.SetStart();
-                this.lblStatus.Text = "Go!   ";
 
                 this.clock = new Timer(90);
                 this.clock.AutoReset = true;
                 this.clock.Elapsed += this.HandleClockTick;
+
+                this.lblTarget.Text = this.target.Target;
+                this.time.SetStart();
                 this.clock.Start();
 
                 this.entryInput.GrabFocus();
                 this.Focus = this.entryInput;
+                this.lblStatus.Text = "Go!";
         }
 
         /// <summary>
