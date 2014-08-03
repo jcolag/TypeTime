@@ -48,3 +48,5 @@ Potential Issues
 
 The big issue that might interest somebody is that logging to SQLite databases occurs through `Mono.Data.Sqlite`, meaning that _TypeTime_ will not operate under .NET.  There _is_ a .NET implementation of the SQLite libraries, [`System.Data.Sqlite`](https://system.data.sqlite.org/index.html/doc/trunk/www/index.wiki), which may well be functionally identical.  That will require testing.
 
+There appears to be some sort of GTK+ race condition that occasionally prevents the application from being usable.  Too often for the program to be reliable, an error of `(TypeTime:`_pid_`): GLib-CRITICAL **: Source ID` _some id_ `was not found when attempting to remove it` gets issued during the course of executing the `HandleElapsed()` method.  When it happens (always when the program's delay is non-trivial), the entry box will not accept focus.
+
