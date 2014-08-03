@@ -7,7 +7,7 @@
     <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="../bin/Debug/TypeTime.exe" internal="true" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="462 300">
+  <widget class="Gtk.Window" id="MainWindow" design-size="469 300">
     <action-group name="Default">
       <action id="FileAction">
         <property name="Type">Action</property>
@@ -24,6 +24,24 @@
         <property name="Label" translatable="yes">Help</property>
         <property name="ShortLabel" translatable="yes">Help</property>
       </action>
+      <action id="quitAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Exit</property>
+        <property name="ShortLabel" translatable="yes">Exit</property>
+        <property name="StockId">gtk-quit</property>
+      </action>
+      <action id="preferencesAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">Preferences</property>
+        <property name="ShortLabel" translatable="yes">Preferences</property>
+        <property name="StockId">gtk-preferences</property>
+      </action>
+      <action id="aboutAction">
+        <property name="Type">Action</property>
+        <property name="Label" translatable="yes">About</property>
+        <property name="ShortLabel" translatable="yes">About</property>
+        <property name="StockId">gtk-about</property>
+      </action>
     </action-group>
     <property name="MemberName" />
     <property name="Title" translatable="yes">Type Time</property>
@@ -34,10 +52,11 @@
     <child>
       <widget class="Gtk.Table" id="table1">
         <property name="MemberName" />
-        <property name="NRows">5</property>
+        <property name="NRows">4</property>
         <property name="NColumns">2</property>
         <property name="RowSpacing">6</property>
         <property name="ColumnSpacing">6</property>
+        <property name="BorderWidth">10</property>
         <child>
           <widget class="Gtk.Entry" id="entryInput">
             <property name="MemberName" />
@@ -48,11 +67,11 @@
             <signal name="Changed" handler="OnEntryInputChanged" />
           </widget>
           <packing>
-            <property name="TopAttach">2</property>
-            <property name="BottomAttach">3</property>
+            <property name="TopAttach">1</property>
+            <property name="BottomAttach">2</property>
             <property name="LeftAttach">1</property>
             <property name="RightAttach">2</property>
-            <property name="AutoSize">True</property>
+            <property name="AutoSize">False</property>
             <property name="XOptions">Fill</property>
             <property name="YOptions">Fill</property>
             <property name="XExpand">False</property>
@@ -66,38 +85,41 @@
         <child>
           <widget class="Gtk.Label" id="label2">
             <property name="MemberName" />
+            <property name="Xalign">0</property>
           </widget>
           <packing>
-            <property name="TopAttach">3</property>
-            <property name="BottomAttach">4</property>
+            <property name="TopAttach">2</property>
+            <property name="BottomAttach">3</property>
             <property name="AutoSize">False</property>
-            <property name="XOptions">Fill</property>
+            <property name="XOptions">Shrink, Fill</property>
+            <property name="YOptions">Expand, Shrink, Fill</property>
             <property name="XExpand">False</property>
             <property name="XFill">True</property>
-            <property name="XShrink">False</property>
+            <property name="XShrink">True</property>
             <property name="YExpand">True</property>
             <property name="YFill">True</property>
-            <property name="YShrink">False</property>
+            <property name="YShrink">True</property>
           </packing>
         </child>
         <child>
           <widget class="Gtk.Label" id="label3">
             <property name="MemberName" />
+            <property name="Xalign">1</property>
           </widget>
           <packing>
-            <property name="TopAttach">3</property>
-            <property name="BottomAttach">4</property>
+            <property name="TopAttach">2</property>
+            <property name="BottomAttach">3</property>
             <property name="LeftAttach">1</property>
             <property name="RightAttach">2</property>
-            <property name="AutoSize">True</property>
-            <property name="XOptions">Fill</property>
-            <property name="YOptions">Fill</property>
+            <property name="AutoSize">False</property>
+            <property name="XOptions">Shrink, Fill</property>
+            <property name="YOptions">Expand, Shrink, Fill</property>
             <property name="XExpand">False</property>
             <property name="XFill">True</property>
-            <property name="XShrink">False</property>
-            <property name="YExpand">False</property>
+            <property name="XShrink">True</property>
+            <property name="YExpand">True</property>
             <property name="YFill">True</property>
-            <property name="YShrink">False</property>
+            <property name="YShrink">True</property>
           </packing>
         </child>
         <child>
@@ -106,8 +128,8 @@
             <property name="LabelProp" translatable="yes">Input</property>
           </widget>
           <packing>
-            <property name="TopAttach">2</property>
-            <property name="BottomAttach">3</property>
+            <property name="TopAttach">1</property>
+            <property name="BottomAttach">2</property>
             <property name="AutoSize">True</property>
             <property name="XOptions">Fill</property>
             <property name="YOptions">Fill</property>
@@ -125,9 +147,7 @@
             <property name="LabelProp" translatable="yes">Repeat</property>
           </widget>
           <packing>
-            <property name="TopAttach">1</property>
-            <property name="BottomAttach">2</property>
-            <property name="AutoSize">True</property>
+            <property name="AutoSize">False</property>
             <property name="XOptions">Fill</property>
             <property name="YOptions">Fill</property>
             <property name="XExpand">False</property>
@@ -144,11 +164,9 @@
             <property name="Xalign">0</property>
           </widget>
           <packing>
-            <property name="TopAttach">1</property>
-            <property name="BottomAttach">2</property>
             <property name="LeftAttach">1</property>
             <property name="RightAttach">2</property>
-            <property name="AutoSize">True</property>
+            <property name="AutoSize">False</property>
             <property name="XOptions">Fill</property>
             <property name="YOptions">Fill</property>
             <property name="XExpand">False</property>
@@ -160,30 +178,6 @@
           </packing>
         </child>
         <child>
-          <widget class="Gtk.MenuBar" id="menubar1">
-            <property name="MemberName" />
-            <node name="__gtksharp_118_Stetic_Editor_ActionMenuBar" type="Menubar">
-              <node type="Menu" />
-              <node type="Menu" />
-              <node type="Menu" />
-              <node type="Menu" action="FileAction" />
-              <node type="Menu" action="EditAction" />
-              <node type="Menu" action="HelpAction" />
-            </node>
-          </widget>
-          <packing>
-            <property name="RightAttach">2</property>
-            <property name="AutoSize">False</property>
-            <property name="YOptions">0</property>
-            <property name="XExpand">True</property>
-            <property name="XFill">True</property>
-            <property name="XShrink">False</property>
-            <property name="YExpand">False</property>
-            <property name="YFill">False</property>
-            <property name="YShrink">False</property>
-          </packing>
-        </child>
-        <child>
           <widget class="Gtk.Statusbar" id="statusbar1">
             <property name="MemberName" />
             <property name="Spacing">10</property>
@@ -191,13 +185,12 @@
             <child>
               <widget class="Gtk.Label" id="lblStatus">
                 <property name="MemberName" />
+                <property name="Xalign">0</property>
                 <property name="LabelProp" translatable="yes">Wait...</property>
               </widget>
               <packing>
                 <property name="Position">0</property>
-                <property name="AutoSize">True</property>
-                <property name="Expand">False</property>
-                <property name="Fill">False</property>
+                <property name="AutoSize">False</property>
               </packing>
             </child>
             <child>
@@ -207,9 +200,7 @@
               </widget>
               <packing>
                 <property name="Position">2</property>
-                <property name="AutoSize">True</property>
-                <property name="Expand">False</property>
-                <property name="Fill">False</property>
+                <property name="AutoSize">False</property>
               </packing>
             </child>
             <child>
@@ -224,14 +215,15 @@
             </child>
           </widget>
           <packing>
-            <property name="TopAttach">4</property>
-            <property name="BottomAttach">5</property>
+            <property name="TopAttach">3</property>
+            <property name="BottomAttach">4</property>
             <property name="RightAttach">2</property>
             <property name="AutoSize">False</property>
+            <property name="XOptions">Expand, Shrink, Fill</property>
             <property name="YOptions">Fill</property>
             <property name="XExpand">True</property>
             <property name="XFill">True</property>
-            <property name="XShrink">False</property>
+            <property name="XShrink">True</property>
             <property name="YExpand">False</property>
             <property name="YFill">True</property>
             <property name="YShrink">False</property>

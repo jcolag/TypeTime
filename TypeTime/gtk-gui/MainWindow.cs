@@ -11,6 +11,12 @@ public partial class MainWindow
 	
 	private global::Gtk.Action HelpAction;
 	
+	private global::Gtk.Action quitAction;
+	
+	private global::Gtk.Action preferencesAction;
+	
+	private global::Gtk.Action aboutAction;
+	
 	private global::Gtk.Table table1;
 	
 	private global::Gtk.Entry entryInput;
@@ -24,8 +30,6 @@ public partial class MainWindow
 	private global::Gtk.Label lblRepeat;
 	
 	private global::Gtk.Label lblTarget;
-	
-	private global::Gtk.MenuBar menubar1;
 	
 	private global::Gtk.Statusbar statusbar1;
 	
@@ -50,6 +54,15 @@ public partial class MainWindow
 		this.HelpAction = new global::Gtk.Action ("HelpAction", global::Mono.Unix.Catalog.GetString ("Help"), null, null);
 		this.HelpAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Help");
 		w1.Add (this.HelpAction, null);
+		this.quitAction = new global::Gtk.Action ("quitAction", global::Mono.Unix.Catalog.GetString ("Exit"), null, "gtk-quit");
+		this.quitAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Exit");
+		w1.Add (this.quitAction, null);
+		this.preferencesAction = new global::Gtk.Action ("preferencesAction", global::Mono.Unix.Catalog.GetString ("Preferences"), null, "gtk-preferences");
+		this.preferencesAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("Preferences");
+		w1.Add (this.preferencesAction, null);
+		this.aboutAction = new global::Gtk.Action ("aboutAction", global::Mono.Unix.Catalog.GetString ("About"), null, "gtk-about");
+		this.aboutAction.ShortLabel = global::Mono.Unix.Catalog.GetString ("About");
+		w1.Add (this.aboutAction, null);
 		this.UIManager.InsertActionGroup (w1, 0);
 		this.AddAccelGroup (this.UIManager.AccelGroup);
 		this.Name = "MainWindow";
@@ -58,9 +71,11 @@ public partial class MainWindow
 		this.Modal = true;
 		this.AllowShrink = true;
 		// Container child MainWindow.Gtk.Container+ContainerChild
-		this.table1 = new global::Gtk.Table (((uint)(5)), ((uint)(2)), false);
+		this.table1 = new global::Gtk.Table (((uint)(4)), ((uint)(2)), false);
+		this.table1.Name = "table1";
 		this.table1.RowSpacing = ((uint)(6));
 		this.table1.ColumnSpacing = ((uint)(6));
+		this.table1.BorderWidth = ((uint)(10));
 		// Container child table1.Gtk.Table+TableChild
 		this.entryInput = new global::Gtk.Entry ();
 		this.entryInput.CanFocus = true;
@@ -69,8 +84,8 @@ public partial class MainWindow
 		this.entryInput.InvisibleChar = '•';
 		this.table1.Add (this.entryInput);
 		global::Gtk.Table.TableChild w2 = ((global::Gtk.Table.TableChild)(this.table1 [this.entryInput]));
-		w2.TopAttach = ((uint)(2));
-		w2.BottomAttach = ((uint)(3));
+		w2.TopAttach = ((uint)(1));
+		w2.BottomAttach = ((uint)(2));
 		w2.LeftAttach = ((uint)(1));
 		w2.RightAttach = ((uint)(2));
 		w2.XOptions = ((global::Gtk.AttachOptions)(4));
@@ -78,30 +93,33 @@ public partial class MainWindow
 		// Container child table1.Gtk.Table+TableChild
 		this.label2 = new global::Gtk.Label ();
 		this.label2.Name = "label2";
+		this.label2.Xalign = 0F;
 		this.table1.Add (this.label2);
 		global::Gtk.Table.TableChild w3 = ((global::Gtk.Table.TableChild)(this.table1 [this.label2]));
-		w3.TopAttach = ((uint)(3));
-		w3.BottomAttach = ((uint)(4));
-		w3.XOptions = ((global::Gtk.AttachOptions)(4));
+		w3.TopAttach = ((uint)(2));
+		w3.BottomAttach = ((uint)(3));
+		w3.XOptions = ((global::Gtk.AttachOptions)(6));
+		w3.YOptions = ((global::Gtk.AttachOptions)(7));
 		// Container child table1.Gtk.Table+TableChild
 		this.label3 = new global::Gtk.Label ();
 		this.label3.Name = "label3";
+		this.label3.Xalign = 1F;
 		this.table1.Add (this.label3);
 		global::Gtk.Table.TableChild w4 = ((global::Gtk.Table.TableChild)(this.table1 [this.label3]));
-		w4.TopAttach = ((uint)(3));
-		w4.BottomAttach = ((uint)(4));
+		w4.TopAttach = ((uint)(2));
+		w4.BottomAttach = ((uint)(3));
 		w4.LeftAttach = ((uint)(1));
 		w4.RightAttach = ((uint)(2));
-		w4.XOptions = ((global::Gtk.AttachOptions)(4));
-		w4.YOptions = ((global::Gtk.AttachOptions)(4));
+		w4.XOptions = ((global::Gtk.AttachOptions)(6));
+		w4.YOptions = ((global::Gtk.AttachOptions)(7));
 		// Container child table1.Gtk.Table+TableChild
 		this.lblInput = new global::Gtk.Label ();
 		this.lblInput.Name = "lblInput";
 		this.lblInput.LabelProp = global::Mono.Unix.Catalog.GetString ("Input");
 		this.table1.Add (this.lblInput);
 		global::Gtk.Table.TableChild w5 = ((global::Gtk.Table.TableChild)(this.table1 [this.lblInput]));
-		w5.TopAttach = ((uint)(2));
-		w5.BottomAttach = ((uint)(3));
+		w5.TopAttach = ((uint)(1));
+		w5.BottomAttach = ((uint)(2));
 		w5.XOptions = ((global::Gtk.AttachOptions)(4));
 		w5.YOptions = ((global::Gtk.AttachOptions)(4));
 		// Container child table1.Gtk.Table+TableChild
@@ -110,8 +128,6 @@ public partial class MainWindow
 		this.lblRepeat.LabelProp = global::Mono.Unix.Catalog.GetString ("Repeat");
 		this.table1.Add (this.lblRepeat);
 		global::Gtk.Table.TableChild w6 = ((global::Gtk.Table.TableChild)(this.table1 [this.lblRepeat]));
-		w6.TopAttach = ((uint)(1));
-		w6.BottomAttach = ((uint)(2));
 		w6.XOptions = ((global::Gtk.AttachOptions)(4));
 		w6.YOptions = ((global::Gtk.AttachOptions)(4));
 		// Container child table1.Gtk.Table+TableChild
@@ -120,20 +136,10 @@ public partial class MainWindow
 		this.lblTarget.Xalign = 0F;
 		this.table1.Add (this.lblTarget);
 		global::Gtk.Table.TableChild w7 = ((global::Gtk.Table.TableChild)(this.table1 [this.lblTarget]));
-		w7.TopAttach = ((uint)(1));
-		w7.BottomAttach = ((uint)(2));
 		w7.LeftAttach = ((uint)(1));
 		w7.RightAttach = ((uint)(2));
 		w7.XOptions = ((global::Gtk.AttachOptions)(4));
 		w7.YOptions = ((global::Gtk.AttachOptions)(4));
-		// Container child table1.Gtk.Table+TableChild
-		this.UIManager.AddUiFromString ("<ui><menubar name='menubar1'><menu/><menu/><menu/><menu name='FileAction' action='FileAction'/><menu name='EditAction' action='EditAction'/><menu name='HelpAction' action='HelpAction'/></menubar></ui>");
-		this.menubar1 = ((global::Gtk.MenuBar)(this.UIManager.GetWidget ("/menubar1")));
-		this.menubar1.Name = "menubar1";
-		this.table1.Add (this.menubar1);
-		global::Gtk.Table.TableChild w8 = ((global::Gtk.Table.TableChild)(this.table1 [this.menubar1]));
-		w8.RightAttach = ((uint)(2));
-		w8.YOptions = ((global::Gtk.AttachOptions)(0));
 		// Container child table1.Gtk.Table+TableChild
 		this.statusbar1 = new global::Gtk.Statusbar ();
 		this.statusbar1.Name = "statusbar1";
@@ -142,39 +148,37 @@ public partial class MainWindow
 		// Container child statusbar1.Gtk.Box+BoxChild
 		this.lblStatus = new global::Gtk.Label ();
 		this.lblStatus.Name = "lblStatus";
+		this.lblStatus.Xalign = 0F;
 		this.lblStatus.LabelProp = global::Mono.Unix.Catalog.GetString ("Wait...");
 		this.statusbar1.Add (this.lblStatus);
-		global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.statusbar1 [this.lblStatus]));
-		w9.Position = 0;
-		w9.Expand = false;
-		w9.Fill = false;
+		global::Gtk.Box.BoxChild w8 = ((global::Gtk.Box.BoxChild)(this.statusbar1 [this.lblStatus]));
+		w8.Position = 0;
 		// Container child statusbar1.Gtk.Box+BoxChild
 		this.lblElapsed = new global::Gtk.Label ();
 		this.lblElapsed.Name = "lblElapsed";
 		this.lblElapsed.LabelProp = global::Mono.Unix.Catalog.GetString ("0.00000");
 		this.statusbar1.Add (this.lblElapsed);
-		global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.statusbar1 [this.lblElapsed]));
-		w10.Position = 2;
-		w10.Expand = false;
-		w10.Fill = false;
+		global::Gtk.Box.BoxChild w9 = ((global::Gtk.Box.BoxChild)(this.statusbar1 [this.lblElapsed]));
+		w9.Position = 2;
 		// Container child statusbar1.Gtk.Box+BoxChild
 		this.progressType = new global::Gtk.ProgressBar ();
 		this.progressType.Name = "progressType";
 		this.progressType.Text = global::Mono.Unix.Catalog.GetString ("Completion");
 		this.statusbar1.Add (this.progressType);
-		global::Gtk.Box.BoxChild w11 = ((global::Gtk.Box.BoxChild)(this.statusbar1 [this.progressType]));
-		w11.Position = 3;
+		global::Gtk.Box.BoxChild w10 = ((global::Gtk.Box.BoxChild)(this.statusbar1 [this.progressType]));
+		w10.Position = 3;
 		this.table1.Add (this.statusbar1);
-		global::Gtk.Table.TableChild w12 = ((global::Gtk.Table.TableChild)(this.table1 [this.statusbar1]));
-		w12.TopAttach = ((uint)(4));
-		w12.BottomAttach = ((uint)(5));
-		w12.RightAttach = ((uint)(2));
-		w12.YOptions = ((global::Gtk.AttachOptions)(4));
+		global::Gtk.Table.TableChild w11 = ((global::Gtk.Table.TableChild)(this.table1 [this.statusbar1]));
+		w11.TopAttach = ((uint)(3));
+		w11.BottomAttach = ((uint)(4));
+		w11.RightAttach = ((uint)(2));
+		w11.XOptions = ((global::Gtk.AttachOptions)(7));
+		w11.YOptions = ((global::Gtk.AttachOptions)(4));
 		this.Add (this.table1);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
 		}
-		this.DefaultWidth = 462;
+		this.DefaultWidth = 469;
 		this.DefaultHeight = 300;
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
