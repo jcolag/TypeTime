@@ -50,3 +50,8 @@ The big issue that might interest somebody is that logging to SQLite databases o
 
 There appears to be some sort of GTK+ race condition that occasionally prevents the application from being usable.  Too often for the program to be reliable, an error of `(TypeTime:`_pid_`): GLib-CRITICAL **: Source ID` _some id_ `was not found when attempting to remove it` gets issued during the course of executing the `HandleElapsed()` method.  When it happens (always when the program's delay is non-trivial), the entry box will not accept focus.
 
+Credits
+-------
+
+The icon is made up of a slightly modified [Keyboard](http://www.thenounproject.com/term/keyboard/6006/) by [David Cadusseau](http://www.thenounproject.com/kaduma/) from [The Noun Project](http://www.thenounproject.com/) and [Watch](http://thenounproject.com/term/watch/5837/) by [George Tsatalios](http://thenounproject.com/George.Tsatalios/) (also) from The Noun Project.
+
