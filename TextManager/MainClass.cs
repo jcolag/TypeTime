@@ -18,8 +18,9 @@ namespace TextManager
                 private static void Main(string[] args)
                 {
                         const int Length = 5;
-                        var rt = new RandomTarget(Length);
-                        var time = new Timing(4);
+                        var conf = new Configuration();
+                        var rt = new RandomTarget(conf);
+                        var time = new Timing(conf);
                         string input;
                         int errors;
                         TimeSpan dur;
@@ -34,7 +35,7 @@ namespace TextManager
                         dur = time.Duration;
                         Console.WriteLine(errors.ToString() + " errors, " +
                                 dur.TotalSeconds.ToString() + " seconds.");
-                        using (var log = new Logger(args[0], null))
+                        using (var log = new Logger(conf))
                         {
                                 log.Log(time.Start, time.Delay, Length, errors, dur.TotalSeconds);
                         }

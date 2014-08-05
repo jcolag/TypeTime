@@ -32,6 +32,11 @@ namespace TextManager
                 private StreamWriter csvOut;
 
                 /// <summary>
+                /// Whether to log to stdout.
+                /// </summary>
+                private bool useStdout = false;
+
+                /// <summary>
                 /// Initializes a new instance of the <see cref="TextManager.Logger"/> class.
                 /// </summary>
                 /// <param name="connectionString">Connection string.</param>
@@ -53,6 +58,31 @@ namespace TextManager
                         {
                                 this.csvOut = new StreamWriter(csvFile);
                         }
+                }
+
+                /// <summary>
+                /// Initializes a new instance of the <see cref="TextManager.Logger"/> class.
+                /// </summary>
+                /// <param name="conf">Configuration object.</param>
+                public Logger(Configuration conf)
+                {
+                        if (!string.IsNullOrWhiteSpace(conf.DbName))
+                        {
+                                this.db = new SqliteConnection("URI=file:" + conf.DbName);
+                                this.db.Open();
+                                using (SqliteCommand command = this.db.CreateCommand())
+                                {
+                                        command.CommandText = Logger.CreateComm;
+                                        command.ExecuteNonQuery();
+                                }
+                        }
+
+                        if (!string.IsNullOrWhiteSpace(conf.CsvName))
+                        {
+                                this.csvOut = new StreamWriter(conf.CsvName);
+                        }
+
+                        this.useStdout = conf.UseStdout;
                 }
 
                 /// <summary>
@@ -116,6 +146,13 @@ namespace TextManager
                         if (this.csvOut != null)
                         {
                                 this.csvOut.WriteLine(now + "," + when.DayOfWeek.ToString() + "," +
+                                        delay.ToString() + "," + length.ToString() + "," +
+                                        errors.ToString() + "," + time.ToString());
+                        }
+
+                        if (this.useStdout)
+                        {
+                                Console.WriteLine(now + "," + when.DayOfWeek.ToString() + "," +
                                         delay.ToString() + "," + length.ToString() + "," +
                                         errors.ToString() + "," + time.ToString());
                         }

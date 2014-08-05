@@ -48,6 +48,15 @@ namespace TextManager
                 }
 
                 /// <summary>
+                /// Initializes a new instance of the <see cref="TextManager.RandomTarget"/> class.
+                /// </summary>
+                /// <param name="conf">Configuration object.</param>
+                public RandomTarget(Configuration conf)
+                {
+                        this.targetLength = conf.TargetLength;
+                }
+
+                /// <summary>
                 /// Gets the target string.
                 /// </summary>
                 /// <value>The target string.</value>

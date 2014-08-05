@@ -56,6 +56,22 @@ namespace TextManager
                 }
 
                 /// <summary>
+                /// Initializes a new instance of the <see cref="TextManager.Timing"/> class.
+                /// </summary>
+                /// <param name="conf">Configuration object.</param>
+                public Timing(Configuration conf)
+                {
+                        int sec = conf.MaxDelay;
+
+                        if (sec < 0)
+                        {
+                                sec = 0;
+                        }
+
+                        this.delay = new Random().Next(sec);
+                }
+
+                /// <summary>
                 /// Gets the duration.
                 /// </summary>
                 /// <value>The duration.</value>
