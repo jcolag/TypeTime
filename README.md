@@ -17,6 +17,15 @@ The program works as follows:
 
 The decision as to how to combine the delay, time, length, and errors into a single metric requires some analysis.
 
+Build
+-----
+
+_TypeTime_ uses [Nini](http://nini.sourceforge.net/), but does not ship with it.  You will need to download the latest copy and drop it into the `TextManager` folder.
+
+After that, open `TypeTime.sln`, build, and run.
+
+Note that `TextManager.exe` currently contains not just the library functions used by _TypeTime_, but is also a standalone executable with the equivalent console functionality.
+
 Logging
 -------
 
@@ -54,4 +63,6 @@ Credits
 -------
 
 The icon is made up of a slightly modified [Keyboard](http://www.thenounproject.com/term/keyboard/6006/) by [David Cadusseau](http://www.thenounproject.com/kaduma/) from [The Noun Project](http://www.thenounproject.com/) and [Watch](http://thenounproject.com/term/watch/5837/) by [George Tsatalios](http://thenounproject.com/George.Tsatalios/) (also) from The Noun Project.
+
+To manage configuration files, _TypeTime_ uses [Nini](http://nini.sourceforge.net/).
 
