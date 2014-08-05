@@ -5,6 +5,7 @@ TextManager/obj
 TypeTime/bin
 TypeTime/obj
 */StyleCop.Cache
+*.dll
 
 # Gedit
 *~
