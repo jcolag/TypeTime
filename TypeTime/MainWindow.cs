@@ -52,6 +52,8 @@ public partial class MainWindow : Gtk.Window
         /// </summary>
         private double interval;
 
+        private Configuration config;
+
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class.
         /// </summary>
@@ -60,14 +62,16 @@ public partial class MainWindow : Gtk.Window
         public MainWindow(string db, string csv) : base(Gtk.WindowType.Toplevel)
         {
                 this.Build();
-                this.interval = (this.rand.Next(5) * 1000) + 1;
+
+                this.config = new Configuration();
+                this.interval = (this.rand.Next(config.MaxDelay) * 1000) + 1;
                 this.entryInput.Sensitive = false;
                 this.delay = new Timer(this.interval);
                 this.delay.AutoReset = false;
                 this.delay.Elapsed += this.HandleElapsed;
                 this.delay.Start();
-                this.time = new Timing();
-                this.log = new Logger(db, csv);
+                this.time = new Timing(config);
+                this.log = new Logger(config);
         }
 
         /// <summary>
@@ -131,7 +135,7 @@ public partial class MainWindow : Gtk.Window
         private void HandleElapsed(object sender, ElapsedEventArgs e)
         {
                 this.entryInput.Sensitive = true;
-                this.target = new RandomTarget(this.targetLength);
+                this.target = new RandomTarget(config);
                 this.target.SetString();
 
                 this.clock = new Timer(90);

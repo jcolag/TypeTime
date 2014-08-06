@@ -17,6 +17,40 @@ The program works as follows:
 
 The decision as to how to combine the delay, time, length, and errors into a single metric requires some analysis.
 
+Options
+-------
+
+_TypeTime_ can be configured via a configuration file.  On UNIX-like systems, this will be at `~/.config/TypeTime/TypeTime.ini`.  On Windows (**untested**), it should be at `TypeTime\TypeTime.ini` in the user's home directory.
+
+The configuration file looks something like...
+
+    [File]
+    Database=/home/youruser/wherever/activity.db
+    CSV=/home/youruser/wherever/activity.csv
+    Stdout=false
+    
+    [Target]
+    Length=7
+    
+    [Operations]
+    MaxDelay=5
+
+All items are optional, with default values.
+
+In short, the options are:
+
+ - **`File`**/**`Database`**, a path to an SQLite3 database file for logging.  Default is none.
+
+ - **`File`**/**`CSV`**, a path to a CSV file for logging.  Default is none.
+
+ - **`File`**/**`Stdout`**, for logging to `stdout`.  Default is `false`.
+
+ - **`Target`**/**`Length`**, specifies the length of the target string to be typed.  Default is 5.
+
+ - **`Operations`**/**`MaxDelay`**, specifies the maximum (random) duration to wait before revealing the target string.  Default is 4.
+
+The `File` options are all independent.  If you want to log to output, a CSV file, and a database, that will work.
+
 Build
 -----
 
