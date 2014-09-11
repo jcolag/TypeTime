@@ -21,7 +21,7 @@ namespace TypeTime
                         string db = args.Length > 0 ? args[0] : null;
 
                         Application.Init();
-                        MainWindow win = new MainWindow(db, null);
+                        var win = new MainWindow(db, null);
                         win.Show();
                         Application.Run();
                 }

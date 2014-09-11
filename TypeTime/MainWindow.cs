@@ -52,6 +52,9 @@ public partial class MainWindow : Gtk.Window
         /// </summary>
         private double interval;
 
+        /// <summary>
+        /// The configuration profile.
+        /// </summary>
         private Configuration config;
 
         /// <summary>
@@ -64,14 +67,14 @@ public partial class MainWindow : Gtk.Window
                 this.Build();
 
                 this.config = new Configuration();
-                this.interval = (this.rand.Next(config.MaxDelay) * 1000) + 1;
+                this.interval = (this.rand.Next(this.config.MaxDelay) * 1000) + 1;
                 this.entryInput.Sensitive = false;
                 this.delay = new Timer(this.interval);
                 this.delay.AutoReset = false;
                 this.delay.Elapsed += this.HandleElapsed;
                 this.delay.Start();
-                this.time = new Timing(config);
-                this.log = new Logger(config);
+                this.time = new Timing(this.config);
+                this.log = new Logger(this.config);
         }
 
         /// <summary>
@@ -135,7 +138,7 @@ public partial class MainWindow : Gtk.Window
         private void HandleElapsed(object sender, ElapsedEventArgs e)
         {
                 this.entryInput.Sensitive = true;
-                this.target = new RandomTarget(config);
+                this.target = new RandomTarget(this.config);
                 this.target.SetString();
 
                 this.clock = new Timer(90);
