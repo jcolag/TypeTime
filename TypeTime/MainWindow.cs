@@ -67,6 +67,7 @@ public partial class MainWindow : Gtk.Window
                 this.Build();
 
                 this.config = new Configuration();
+                this.targetLength = this.config.TargetLength;
                 this.interval = (this.rand.Next(this.config.MaxDelay) * 1000) + 1;
                 this.entryInput.Sensitive = false;
                 this.delay = new Timer(this.interval);
